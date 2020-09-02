@@ -17,12 +17,17 @@ changeBannerImg.addEventListener("wheel", (event) => {
 let scale = 1;
 
 //change nav bar text color by using click
-const navColor = document.querySelectorAll(".nav-link");
-navColor.forEach((el) => {
+const navItems = document.querySelectorAll(".nav-link");
+navItems.forEach((el) => {
   el.addEventListener("click", () => {
     el.style.color = "pink";
   });
 });
+
+//preventing refresh on navlinks
+// navItems.addEventListener("click", function (event) {
+//   event.preventDefault();
+// });
 
 //using keydown "Escape" to hide all elements within body
 const changeHome = document.querySelector(".container.home");
@@ -55,3 +60,34 @@ pickYourDestinationEl.addEventListener("mouseleave", () => {
 // document.addEventListener("mouseup", () => {
 //   window.location.href = "https://www.google.com/"
 // })
+
+//nested events aren't best practice and everyone on the web says NOT to do this?
+
+const destinationEls = document.querySelectorAll(".destination");
+const btns = document.querySelectorAll(".btn");
+destinationEls.forEach((item) => {
+  item.addEventListener("click", (event) => {
+    event.target.style.backgroundColor = "blue";
+  });
+});
+btns.forEach((item) => {
+  item.addEventListener("click", (event) => {
+    event.target.style.backgroundColor = "red";
+    event.stopPropagation();
+  });
+});
+
+// destinationEls.addEventListener("click", () => {
+//   debugger;
+//   destinationEls.style.backgroundColor = "blue";
+// btns.addEventListener("click", () => {
+//   btns.stlye.backgroundColor = "red";
+// });
+
+// });
+
+// navItems.forEach((el) => {
+//   el.addEventListener("click", () => {
+//     el.style.color = "pink";
+//   });
+// });

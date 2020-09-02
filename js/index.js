@@ -25,9 +25,12 @@ navItems.forEach((el) => {
 });
 
 //preventing refresh on navlinks
-// navItems.addEventListener("click", function (event) {
-//   event.preventDefault();
-// });
+
+navItems.forEach((item) => {
+  item.addEventListener("click", (event) => {
+    event.preventDefault();
+  });
+});
 
 //using keydown "Escape" to hide all elements within body
 const changeHome = document.querySelector(".container.home");
@@ -61,7 +64,7 @@ pickYourDestinationEl.addEventListener("mouseleave", () => {
 //   window.location.href = "https://www.google.com/"
 // })
 
-//nested events aren't best practice and everyone on the web says NOT to do this?
+//nested event
 
 const destinationEls = document.querySelectorAll(".destination");
 const btns = document.querySelectorAll(".btn");
@@ -76,18 +79,3 @@ btns.forEach((item) => {
     event.stopPropagation();
   });
 });
-
-// destinationEls.addEventListener("click", () => {
-//   debugger;
-//   destinationEls.style.backgroundColor = "blue";
-// btns.addEventListener("click", () => {
-//   btns.stlye.backgroundColor = "red";
-// });
-
-// });
-
-// navItems.forEach((el) => {
-//   el.addEventListener("click", () => {
-//     el.style.color = "pink";
-//   });
-// });

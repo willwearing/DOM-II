@@ -79,3 +79,12 @@ btns.forEach((item) => {
     event.stopPropagation();
   });
 });
+
+//using GSAP to animate some stuff:
+gsap.to(".logo-heading", {
+  duration: 5,
+  x: 300,
+  rotation: 360,
+  backgroundColor: "purple",
+});
+gsap.to(".img-content", { duration: 3, rotation: 360 });
